@@ -8,6 +8,7 @@ import java.util.Scanner;
  */
 public class userProfile {
 
+
     public String fName;
     public String lName;
     public int ID;
@@ -74,6 +75,7 @@ public class userProfile {
     public void setLocation(String loc) {
         location = loc;
     }
+
     /**
      * set user rule 
      * @param ru String user rule
@@ -122,6 +124,9 @@ public class userProfile {
      */
     public String getRule() {
         return rule;
+    }
+    public String getLocation() {
+        return location;
     }
 
 }
