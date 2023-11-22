@@ -2,23 +2,19 @@ package System;
 
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
-import System.Administrator;
-import java.util.ArrayList;
 
 public class AdministratorTest {
-
     @Test
-    public void testGetEmail() {
+    public void verificaObtencaoSenha() {
         Administrator admin = new Administrator();
-        assertEquals("admin@gmail.com", admin.getEmail());
+        assertEquals("admin123", admin.getPassword());
     }
 
     @Test
-    public void testGetPassword() {
+    public void verificaObtencaoEmail() {
         Administrator admin = new Administrator();
-        assertEquals("123", admin.getPassword());
+        assertEquals("admin@hotmail.com", admin.getEmail());
     }
 
 
-    // Este teste pode ser ampliado para cobrir mais funcionalidades.
 }

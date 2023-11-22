@@ -10,30 +10,28 @@ public class PlaygroundTest {
     private Playground playground;
 
     @BeforeEach
-    public void setUp() {
+    public void configurar() {
         playground = new Playground();
     }
 
     @Test
-    public void testSetAndGetCancellationPeriod() {
-        playground.setCancellationPeriod(24);
-        assertEquals(24, playground.getCancellationPeriod());
+    public void testeDefinirEObterPeriodoDeCancelamento() {
+        playground.setCancellationPeriod(10);
+        assertEquals(10, playground.getCancellationPeriod());
     }
 
     @Test
-    public void testSetAndGetName() {
-        playground.setName("Playground 1");
-        assertEquals("Playground 1", playground.getName());
+    public void testeDefinirEObterNome() {
+        playground.setName("Parque");
+        assertEquals("Parque", playground.getName());
     }
 
     @Test
-    public void testSetAndGetOwner() {
-        playground.setOwner("John Doe");
-        assertEquals("John Doe", playground.getOwner());
+    public void testeDefinirEObterProprietario() {
+            playground.setOwner("Murilo");
+        assertEquals("Murilo", playground.getOwner());
     }
 
-    // Testes adicionais para getStatus, getLocation, getPrice, getSlotsBegin, getSlotsEnd
-    // Nota: Esses testes exigirão que os valores correspondentes sejam definidos de antemão,
-    // pois os métodos para defini-los dependem da entrada do usuário.
+
 
 }

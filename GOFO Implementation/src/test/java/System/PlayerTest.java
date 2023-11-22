@@ -10,24 +10,18 @@ public class PlayerTest {
     private Player player;
 
     @BeforeEach
-    public void setUp() {
+    public void prepararAmbiente() {
         player = new Player();
     }
 
     @Test
-    public void testSetAndGetBalance() {
-        player.setBalance(100);
-        assertEquals(100, player.getBalance(), "Balance should be correctly set and retrieved");
+    public void testeDefinirEObterSaldo() {
+        player.setBalance(50);
+        assertEquals(50, player.getBalance(), "O saldo deve ser alterado.");
     }
 
     @Test
-    public void testAddAndViewInbox() {
-        player.addInbox("Test message");
-        // Simulate viewInbox output and assert the expected result
-        // Nota: Isso pode requerer refatoração na classe Player para permitir testar facilmente
-        // Por exemplo, retornar os valores de Inbox como String ao invés de imprimir diretamente no console.
+    public void testeAdicionarEVisualizarCaixaDeEntrada() {
+        player.addInbox("Teste para Caixa de entrada.");
     }
-
-    // Adicionar mais testes para outros métodos conforme necessário.
-
 }

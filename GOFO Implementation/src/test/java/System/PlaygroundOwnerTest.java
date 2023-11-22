@@ -14,43 +14,40 @@ public class PlaygroundOwnerTest {
     private Playground playground;
 
     @BeforeEach
-    public void setUp() {
-        owner = new PlaygroundOwner();
+    public void configurarAmbiente() {
+        playground.setName("Playground");
         wallet = new eWallet();
+        owner = new PlaygroundOwner();
         playground = new Playground();
-        playground.setName("Playground Test");
-        // Assumindo que você tem um construtor padrão
-        // Configure playground e wallet conforme necessário
     }
 
     @Test
-    public void testSetAndGetBalance() {
-        wallet.setBalance(100);
+    public void testeExistenciaParquinho() {
+        owner.addPlayground(playground);
+        assertTrue(owner.existPlayground(playground.getName()), "O retorno validará o Plyground criado.");
+        assertFalse(owner.existPlayground("Playground não criado"), "O retorno validará se o Plyground foi criado.");
+    }
+
+    @Test
+    public void testeAdicionarParquinho() {
+        owner.addPlayground(playground);
+        assertTrue(owner.existPlayground(playground.getName()), "Playground foi criado.");
+    }
+
+    @Test
+    public void testeDefinirEObterSaldo() {
+        wallet.setBalance(50);
         owner.setBalance(wallet);
-        assertEquals(100, owner.getMyBalance(), "Balance should match the value set in eWallet");
+        assertEquals(50, owner.getMyBalance(), "O saldo deve está igual ao valor definido na Carteira");
     }
 
     @Test
-    public void testAddPlayground() {
-        owner.addPlayground(playground);
-        assertTrue(owner.existPlayground(playground.getName()), "Playground should exist after being added");
-    }
-
-    @Test
-    public void testExistPlayground() {
-        owner.addPlayground(playground);
-        assertTrue(owner.existPlayground(playground.getName()), "Should return true for existing playground");
-        assertFalse(owner.existPlayground("Nonexistent Playground"), "Should return false for non-existing playground");
-    }
-
-    @Test
-    public void testAddRecieveMsg() {
-        String message = "Test Message";
+    public void testeAdicionarReceberMensagem() {
+        String message = "Teste Playground";
         owner.addRecieveMsg(message);
-        // Aqui você precisa refatorar displayRecieveMsg para retornar as mensagens como uma String, ao invés de imprimi-las diretamente
-        // Assert the expected output after refactoring
+
     }
 
-    // Adicione mais testes conforme necessário.
+
 
 }

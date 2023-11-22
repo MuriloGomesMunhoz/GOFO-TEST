@@ -10,35 +10,39 @@ public class eWalletTest {
     private eWallet wallet;
 
     @BeforeEach
-    public void setUp() {
+    public void inicializar() {
         wallet = new eWallet();
     }
 
     @Test
-    public void testSetBalanceWithInt() {
-        wallet.setBalance(100);
-        assertEquals(100, wallet.getBalance(), "Setting balance should correctly update the balance");
+    public void testeRetirada() {
+        wallet.setBalance(50);
+        wallet.withdraw(10);
+        assertEquals(10, wallet.getBalance(), "O dinheiro deve ser descontado.");
     }
 
     @Test
-    public void testDeposit() {
+    public void testeDefinirSaldoComInteiro() {
+        wallet.setBalance(55);
+        assertEquals(55, wallet.getBalance(), "O saldo deve ser atualizado corretamente.");
+    }
+
+    @Test
+    public void testeObterSaldo() {
         wallet.setBalance(100);
+        assertEquals(100, wallet.getBalance(), "Deve retornar o saldo atual;");
+    }
+
+    @Test
+    public void testeDeposito() {
+        wallet.setBalance(50);
         wallet.deposit(50);
-        assertEquals(150, wallet.getBalance(), "Depositing money should correctly increase the balance");
+        assertEquals(100, wallet.getBalance(), "O dinheiro deve ser atualizado corretamente.");
     }
 
-    @Test
-    public void testWithdraw() {
-        wallet.setBalance(100);
-        wallet.withdraw(50);
-        assertEquals(50, wallet.getBalance(), "Withdrawing money should correctly decrease the balance");
-    }
 
-    @Test
-    public void testGetBalance() {
-        wallet.setBalance(200);
-        assertEquals(200, wallet.getBalance(), "getBalance should return the current balance");
-    }
 
-    // Testes adicionais podem ser adicionados aqui, se necessário.
+
+
+
 }
