@@ -9,5 +9,8 @@
         <module name="GOFO-TEST" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="GOFO" target="1.7" />
+    </bytecodeTargetLevel>
   </component>
 </project>
